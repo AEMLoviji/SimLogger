@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SimLogger.Loggers;
+using System;
 
 namespace SimLogger
 {
@@ -6,7 +7,11 @@ namespace SimLogger
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var log = new FileLogHandler();
+            log.Info("Info text");
+            log.Debug("Debug text");
+            log.Warning("Warning text");
+            log.Error("Error text");
         }
     }
 }
