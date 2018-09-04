@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SimLogger.Enums;
+using System;
 
 namespace SimLogger
 {

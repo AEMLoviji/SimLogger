@@ -1,12 +1,13 @@
-﻿using System;
+﻿using SimLogger.Enums;
 using System.Collections.Generic;
 
-namespace SimLogger.Loggers
+namespace SimLogger.LogProviders
 {
-    public class LocalLogHandler : ILogHandler
+    public class LocalLogHandler : ILogProvider
     {
         private List<LogItem> localLogs = new List<LogItem>();
-        
+
+        public string CallerMember { get; set; }
         public void Debug(string message)
         {
             AddToLogList(LogLevel.Debug, message);

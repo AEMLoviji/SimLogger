@@ -1,15 +1,18 @@
 ﻿using System;
 using System.Globalization;
 using System.IO;
-using SimLogger.Loggers;
+using System.Threading.Tasks;
+using SimLogger.Enums;
 
-namespace SimLogger
+namespace SimLogger.LogProviders
 {
-    public class FileLogHandler : ILogHandler
+    public class FileLogProvider : ILogProvider
     {
         private static string _logFilePath = "D:\\simlogger.txt";
 
-        static FileLogHandler()
+        public string CallerMember { get; set; }
+
+        static FileLogProvider()
         {
             if (!File.Exists(_logFilePath))
             {
@@ -58,7 +61,7 @@ namespace SimLogger
 
         private string FormatOutput(LogLevel logLevel, string message)
         {
-            return $"{DateTime.Now.ToString("G",CultureInfo.InvariantCulture)} - [{logLevel}] : {message}";
+            return $"{DateTime.Now.ToString("G", CultureInfo.InvariantCulture)} - [{logLevel}] {CallerMember}: {message}";
         }
 
         private static void CheckLogFileForExistence()

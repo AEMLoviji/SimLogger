@@ -1,7 +1,9 @@
-﻿namespace SimLogger.Loggers
+﻿namespace SimLogger.LogProviders
 {
-    interface ILogHandler
+    public interface ILogProvider
     {
+        string CallerMember { get; set; }
+
         void Info(string message);
         void Debug(string message);
         void Warning(string message);

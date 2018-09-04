@@ -1,4 +1,4 @@
-﻿namespace SimLogger
+﻿namespace SimLogger.Enums
 {
     public enum LogLevel
     {
